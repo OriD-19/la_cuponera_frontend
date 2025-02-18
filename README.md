@@ -1,8 +1,19 @@
-# React + Vite
+# La Cuponera
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pequeña tienda en línea para la compra de cupones de descuento.
+Este repositorio contiene todo el código para desarrollar la parte del *front-end* para la aplicación.
 
-Currently, two official plugins are available:
+## Tecnologías utilizadas
+- React JS
+- TailwindCSS
+- React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos
+- Desarrollado con Node v22.13.1
+- npm v10.9.2
+
+## Instrucciones para desarrollo local y ejecución del proyecto
+1. Clonar el repositorio: `git clone https://github.com/OriD-19/la_cuponera_frontend.git .`
+2. Instalar los paquetes necesarios (puedes utilizar tu gestor de paquetes de Node favorito):
+`npm install`
+3. Ejecutar el servidor de desarrollo: `npm run dev`
