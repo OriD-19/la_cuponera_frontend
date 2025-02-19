@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export const IniciarSesion = () => {
     const [formData, setFormData] = useState({
-        correo: '',
-        contrasena: '',
+        username: '',
+        password: '',
     });
 
     const [error, setError] = useState('');
@@ -19,7 +19,7 @@ export const IniciarSesion = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.correo || !formData.contrasena) {
+        if (!formData.username || !formData.password) {
             setError('Por favor, ingresa todos los datos');
             return;
         }
@@ -28,7 +28,7 @@ export const IniciarSesion = () => {
         setMensaje('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/login/client', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export const IniciarSesion = () => {
 
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
-                localStorage.setItem('token', data.token); // Guardar token
+                localStorage.setItem('authToken', data.authToken); // Guardar token
             } else {
                 setError(data.message || 'Error en el inicio de sesión');
             }
@@ -57,13 +57,13 @@ export const IniciarSesion = () => {
                 {mensaje && <p className="text-green-500 text-sm mb-4">{mensaje}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="correo" className="block text-gray-700">Correo</label>
-                        <input type="email" id="correo" name="correo" value={formData.correo} onChange={handleChange}
-                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu correo" />
+                        <label htmlFor="username" className="block text-gray-700">Username</label>
+                        <input type="text" id="username" name="username" value={formData.username} onChange={handleChange}
+                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu username" />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="contrasena" className="block text-gray-700">Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena" value={formData.contrasena} onChange={handleChange}
+                        <label htmlFor="password" className="block text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange}
                             className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu contraseña" />
                     </div>
                     <button type="submit" className="w-full bg-blue-900 text-white py-2 rounded">Iniciar sesión</button>
