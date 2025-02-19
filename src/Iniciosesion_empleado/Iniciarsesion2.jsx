@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const IniciarSesion = () => {
+export const IniciarSesion2 = () => {
     const [formData, setFormData] = useState({
         correo: '',
         contrasena: '',
@@ -61,7 +61,7 @@ export const IniciarSesion = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-900 text-white py-2 rounded"
+                        className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
                     >
                         Iniciar sesión
                     </button>
