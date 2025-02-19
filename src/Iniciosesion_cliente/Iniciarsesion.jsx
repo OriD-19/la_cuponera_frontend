@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const IniciarSesion = () => {
     const [formData, setFormData] = useState({
-        correo: '',
+        usuario: '',
         contrasena: '',
     });
 
@@ -19,7 +19,7 @@ export const IniciarSesion = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.correo || !formData.contrasena) {
+        if (!formData.usuario || !formData.contrasena) {
             setError('Por favor, ingresa todos los datos');
             return;
         }
@@ -28,7 +28,7 @@ export const IniciarSesion = () => {
         setMensaje('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/login', {
+            const response = await fetch('https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/users/client/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,16 +57,35 @@ export const IniciarSesion = () => {
                 {mensaje && <p className="text-green-500 text-sm mb-4">{mensaje}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="correo" className="block text-gray-700">Correo</label>
-                        <input type="email" id="correo" name="correo" value={formData.correo} onChange={handleChange}
-                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu correo" />
+                        <label htmlFor="usuario" className="block text-gray-700">Usuario</label>
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            value={formData.usuario}
+                            onChange={handleChange}
+                            className="w-full border border-gray-300 p-2 rounded mt-2"
+                            placeholder="Ingresa tu usuario"
+                        />
                     </div>
                     <div className="mb-4">
                         <label htmlFor="contrasena" className="block text-gray-700">Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena" value={formData.contrasena} onChange={handleChange}
-                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu contraseña" />
+                        <input
+                            type="password"
+                            id="contrasena"
+                            name="contrasena"
+                            value={formData.contrasena}
+                            onChange={handleChange}
+                            className="w-full border border-gray-300 p-2 rounded mt-2"
+                            placeholder="Ingresa tu contraseña"
+                        />
                     </div>
-                    <button type="submit" className="w-full bg-blue-900 text-white py-2 rounded">Iniciar sesión</button>
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-900 text-white py-2 rounded"
+                    >
+                        Iniciar sesión
+                    </button>
                 </form>
             </div>
         </div>
