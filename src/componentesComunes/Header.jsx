@@ -34,14 +34,14 @@ export const Header = () => {
 
                 {/* Muestra menu de hamburguesaa */}
                 <div className="flex flex-col items-center space-y-2 w-full h-[150px] md:hidden">
-                    <button className="bg-primary text-white px-4 py-2 rounded w-3/4">Registrarse</button>
-                    <button className="border border-primary text-primary px-4 py-2 rounded w-3/4">Iniciar sesión</button>
+                    <button className="bg-primary text-white px-4 py-2 rounded w-3/4 font-semibold hover:bg-resaltador hover:text-white hover:border-resaltador">Registrarse</button>
+                    <button className="border border-primary text-primary px-4 py-2 rounded w-3/4  font-semibold hover:text-resaltador hover:border-resaltador hover:border-3">Iniciar sesión</button>
                 </div>
             </nav>
 
             <div className="hidden md:flex space-x-2">
-                <button className="bg-primary text-white px-4 py-2 rounded">Registrarse</button>
-                <button className="border border-primary text-primary px-4 py-2 rounded">Iniciar sesión</button>
+                <button className="bg-primary text-white px-4 py-2 border-primary border-3 rounded font-semibold hover:bg-resaltador hover:text-white hover:border-resaltador">Registrarse</button>
+                <button className="border-primary text-primary px-4 py-2 border-3 rounded font-semibold hover:text-resaltador hover:border-resaltador hover:border-3">Iniciar sesión</button>
             </div>
         </header>
     )
