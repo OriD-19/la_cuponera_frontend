@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentesComunes/Header'
 import { Home } from './VisualizacionCupones/Home'
 import { Cupones } from './VisualizacionCupones/Cupones'
-import { Registro } from './Registro/Registro'
-import { IniciarSesion } from './Iniciosesion/Iniciarsesion'
+import { Registro } from './Registro_cliente/Registro'
+import { IniciarSesion } from './Iniciosesion_cliente/Iniciarsesion'
+import { IniciarSesion2 } from './Iniciosesion_empleado/Iniciarsesion2'
+import { Registro2 } from './Registro_empleado/Registro2'
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
             <Route path='cupones' element={<Cupones/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
             <Route path="registro" element={<Registro />} />
             <Route path="inicio" element={<IniciarSesion />} />
+            <Route path="registro2" element={<Registro2 />} />
+            <Route path="inicio2" element={<IniciarSesion2 />} />
 
         </Routes>
     </BrowserRouter>
