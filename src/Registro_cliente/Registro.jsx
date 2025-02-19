@@ -30,10 +30,11 @@ export const Registro = () => {
         setMensaje('');
 
         try {
-            const response = await fetch('http://localhost:5000/api/registro', {
+            const response = await fetch('https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/users/client/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(formData),
             });
