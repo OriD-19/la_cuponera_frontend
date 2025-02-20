@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import Header from './componentesComunes/Header'
+import Header from './componentes/header/Header'
 import { Home } from './VisualizacionCupones/Home'
 import { Registro } from './Registro_cliente/Registro'
 import { IniciarSesion } from './Iniciosesion_cliente/Iniciarsesion'
