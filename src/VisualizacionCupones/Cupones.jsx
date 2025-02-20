@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CuponCard } from "./CuponCard";
 
+
 export const Cupones = () => {
     const [cupones, setCupones] = useState([]);
 
@@ -19,6 +20,7 @@ export const Cupones = () => {
 
         fetchCupones();
     }, []);
+
 
     return (
         <div className="p-4 mt-6 px-20">
