@@ -1,7 +1,9 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router";
 import CouponDetails from "./Components/CouponDetails";
 import PasarelaPago from "./Components/PasarelaPago";
-import {CuponAdquirido} from "./Components/CuponAdquirido";
+import { CuponAdquirido } from "./Components/CuponAdquirido";
+
+
 
 
 function App() {
