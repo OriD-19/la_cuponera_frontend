@@ -10,7 +10,7 @@ export const CuponCard = ({ cupon }) => {
         <img src="./public/img/Cuponazo.png" alt="Cupón" className="place-self-center w-auto h-40" />
         <p className="mt-3 font-bold">{cupon.title}</p>
         <p className="font-semibold">{cupon.enterpriseCode}</p>
-        <p>{cupon.validUntil}</p>
+        <p >Válido hasta: {new Date(cupon.validUntil).toLocaleDateString()}</p>
       </div>
       <button className="bg-primary h-7 w-full mt-4 rounded text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">
         Ver oferta

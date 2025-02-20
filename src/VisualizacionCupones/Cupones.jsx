@@ -18,7 +18,6 @@ export const Cupones = () => {
                 ? "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/offers/allFromUser"
                 : "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons";
 
-            console.log("Obteniendo cupones desde:", endpoint);
 
             try {
                 const response = await fetch(endpoint, {
@@ -31,12 +30,11 @@ export const Cupones = () => {
                 }
 
                 const data = await response.json();
-                console.log("Respuesta de la API:", data);
 
                 // Si está autenticado, usa `data.offers`, sino `data.coupons`
                 setCupones(authToken ? (data.offers || []) : (data.coupons || []));
             } catch (error) {
-                console.error("Error al obtener los cupones:", error);
+                
                 setError(error.message);
             } finally {
                 setLoading(false);
@@ -46,7 +44,7 @@ export const Cupones = () => {
         fetchCupones();
     }, [authToken]);
 
-    if (loading) return <p>Cargando cupones...</p>;
+    if (loading) return <p >Cargando cupones...</p>;
     if (error) return <p>Error: {error}</p>;
 
     return (
