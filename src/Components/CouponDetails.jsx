@@ -25,7 +25,7 @@ export default function CouponDetails() {
                 <p className="text-lg">{coupon.offerDesc}</p>
                 <p className="font-bold line-through">Precio normal: ${coupon.regularPrice}</p>
                 <p className="text-xl font-bold text-primary">Precio con descuento: ${coupon.offerPrice}</p>
-                <p className="text-lg font-bold mt-2">Perido de Validez y Existencias</p>
+                <p className="text-lg font-bold mt-2">Período de Validez y Existencias</p>
                 <p className="mt-1">Valido desde {new Date(coupon.validFrom).toLocaleDateString()} hasta {new Date(coupon.validUntil).toLocaleDateString()}</p>
                 <p className="text-gray-700">Cupones disponibles: {coupon.availableCoupons}</p>
                 <p className="text-resaltador text-lg font-semibold mt-2">Empresa ofertante: {coupon.enterpriseCode}</p>
