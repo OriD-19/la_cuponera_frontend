@@ -1,6 +1,6 @@
 import React from "react";
 import { CuponCard } from "./CuponCard";
-import { useCupones } from "../hooks/useCupones";
+import { useCupones } from "../../hooks/useCupones";
 import { Filtro } from "./Filtro";
 
 

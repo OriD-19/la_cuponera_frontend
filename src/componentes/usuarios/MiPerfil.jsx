@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { UserIcon } from "@heroicons/react/20/solid";
 import { NavLink } from "react-router";
 

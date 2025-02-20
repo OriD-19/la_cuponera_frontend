@@ -1,13 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentes/header/Header'
-import { Home } from './VisualizacionCupones/Home'
+import { Home } from './componentes/visualizacionCupones/Home'
 import { Registro } from './componentes/usuarios/Registro'
 import { IniciarSesion } from './componentes/usuarios/Iniciarsesion'
-import { IniciarSesion2 } from './empleados/Iniciarsesion2'
-import { Registro2 } from './empleados/Registro2'
-import { CuponesPublicos } from './VisualizacionCupones/CuponesPublicos'
-import { CuponesPrivados } from './VisualizacionCupones/CuponesPrivados'
+import { IniciarSesionEmpleados } from './componentes/empleados/IniciarSesionEmpleados'
+import { RegistroEmpleados } from './componentes/empleados/RegistroEmpleados'
+import { CuponesPublicos } from './componentes/visualizacionCupones/CuponesPublicos'
+import { CuponesPrivados } from './componentes/visualizacionCupones/CuponesPrivados'
 import { MiPerfil } from './componentes/usuarios/MiPerfil'
 import AuthProvider from './context/AuthContext'
 
@@ -23,9 +23,9 @@ const App = () => {
             <Route path='cuponesPublicos' element={<CuponesPublicos/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
             <Route path='cuponesPrivados' element={<CuponesPrivados/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
             <Route path="registro" element={<Registro />} />
-            <Route path="inicio" element={<IniciarSesion />} />
-            <Route path="registro2" element={<Registro2 />} />
-            <Route path="inicio2" element={<IniciarSesion2 />} />
+            <Route path="login" element={<IniciarSesion />} />
+            <Route path="registro_empleados" element={<RegistroEmpleados />} />
+            <Route path="login_empleados" element={<IniciarSesionEmpleados />} />
             <Route path='perfil' element={<MiPerfil/>}/>
 
         </Routes>

@@ -1,11 +1,11 @@
 import React from "react";
 import { CuponCard } from "./CuponCard";
-import { useCupones } from "../hooks/useCupones";
+import { useCupones } from "../../hooks/useCupones";
 import { Filtro } from "./Filtro";
 
 
 export const CuponesPublicos = () => {
-    const { cupones, loading, error } = useCupones("publicos");
+    const { cupones, loading, error, next, setLoadMore } = useCupones("publicos");
 
     if (loading) return <p className="text-gray-700 text-lg items-center">Cargando cupones...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -23,6 +23,7 @@ export const CuponesPublicos = () => {
                         ))}
                     </div>
                 )}
+                {next && <button className="cursor-pointer p-6 bg-slate-800 text-white" onClick={() => setLoadMore((prev) => !prev)}>Cargar Más</button>}
             </div>
         </>
     );
