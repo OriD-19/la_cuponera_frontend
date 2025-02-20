@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
 
+
 export const IniciarSesion = () => {
+    const { login } = useContext(AuthContext); // Obtener la función de login del contexto
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -42,8 +46,10 @@ export const IniciarSesion = () => {
 
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
-                localStorage.setItem('authToken', data.authToken); // Guardar token
-                navigate('/cuponesPrivados')
+                
+                login(data); // Usar la función login del contexto
+                
+                navigate('/cuponesPrivados'); // Redirigir a la página de cupones privados
 
             } else {
                 setError(data.message || 'Error en el inicio de sesión');

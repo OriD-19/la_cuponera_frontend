@@ -2,16 +2,19 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentes/header/Header'
 import { Home } from './VisualizacionCupones/Home'
-import { Registro } from './Registro_cliente/Registro'
-import { IniciarSesion } from './Iniciosesion_cliente/Iniciarsesion'
-import { IniciarSesion2 } from './Iniciosesion_empleado/Iniciarsesion2'
-import { Registro2 } from './Registro_empleado/Registro2'
+import { Registro } from './usuarios/Registro'
+import { IniciarSesion } from './usuarios/Iniciarsesion'
+import { IniciarSesion2 } from './empleados/Iniciarsesion2'
+import { Registro2 } from './empleados/Registro2'
 import { CuponesPublicos } from './VisualizacionCupones/CuponesPublicos'
 import { CuponesPrivados } from './VisualizacionCupones/CuponesPrivados'
+import { MiPerfil } from './usuarios/MiPerfil'
+import AuthProvider from './context/AuthContext'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
         <Header/>
         <Routes>
             {/* Colocar las rutas acá */}
@@ -23,9 +26,11 @@ const App = () => {
             <Route path="inicio" element={<IniciarSesion />} />
             <Route path="registro2" element={<Registro2 />} />
             <Route path="inicio2" element={<IniciarSesion2 />} />
+            <Route path='perfil' element={<MiPerfil/>}/>
 
         </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 
