@@ -1,9 +1,7 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 
-export const Registro= () =>
-{
-    const [formData, setFormData]= useState
-    ({
+export const Registro2 = () => {
+    const [formData, setFormData] = useState({
         nombre: '',
         correo: '',
         contrasena: '',
@@ -12,24 +10,20 @@ export const Registro= () =>
 
     const [error, setError] = useState('');
 
-    const handleChange=(e) =>
-    {
-        setFormData
-        ({
-            ...formData, 
-            [e.tarjet.name]: e.tarjet.value,
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
         });
     };
 
-    const handleSubmit = (e)=>
-    {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!formData.nombre || !formData.correo || !formData.contrasena || formData.dui)
-            {
-                setError('Porfavor, complete todos los campos');
-                return;
-            }
+        if (!formData.nombre || !formData.correo || !formData.contrasena || !formData.dui) {
+            setError('Por favor, complete todos los campos');
+            return;
+        }
 
         setError('');
 
@@ -37,9 +31,9 @@ export const Registro= () =>
         console.log('Registrando usuario:', formData);
     };
 
-    return(
+    return (
         <div className="max-w-md mx-auto mt-10 bg-white p-6 shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">Registro</h2>
+            <h2 className="text-2xl font-semibold text-blue-900 mb-4 text-center">Registro</h2>
             {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -92,7 +86,7 @@ export const Registro= () =>
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-blue-900 text-white py-2 rounded"
+                    className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
                 >
                     Registrar
                 </button>

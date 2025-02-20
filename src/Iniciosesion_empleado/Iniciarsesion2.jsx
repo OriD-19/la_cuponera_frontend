@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const IniciarSesion = () => {
+export const IniciarSesion2 = () => {
     const [formData, setFormData] = useState({
         correo: '',
         contrasena: '',
@@ -36,7 +36,7 @@ export const IniciarSesion = () => {
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="correo" className="block text-gray-700">Correo</label>
+                        <label htmlFor="correo" className="block text-gray-700">Username</label>
                         <input
                             type="email"
                             id="correo"
@@ -44,7 +44,7 @@ export const IniciarSesion = () => {
                             value={formData.correo}
                             onChange={handleChange}
                             className="w-full border border-red-500 p-2 rounded mt-2"
-                            placeholder="Ingresa tu correo"
+                            placeholder="Ingresa tu username"
                         />
                     </div>
                     <div className="mb-4">
@@ -61,7 +61,7 @@ export const IniciarSesion = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-900 text-white py-2 rounded"
+                        className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
                     >
                         Iniciar sesión
                     </button>
