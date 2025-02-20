@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const Registro = () => {
     const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export const Registro = () => {
 
     const [error, setError] = useState("");
     const [mensaje, setMensaje] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -60,6 +62,8 @@ export const Registro = () => {
                     phoneNumber: "",
                     dui: ""
                 });
+                navigate('/inicio')
+
             } else {
                 setError(data.message || "Error en el registro.");
             }

@@ -43,7 +43,7 @@ export const IniciarSesion = () => {
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
                 localStorage.setItem('authToken', data.authToken); // Guardar token
-                navigate('/cupones')
+                navigate('/cuponesPrivados')
 
             } else {
                 setError(data.message || 'Error en el inicio de sesión');
