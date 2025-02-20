@@ -20,8 +20,8 @@ const App = () => {
             {/* Colocar las rutas acá */}
             
             <Route path='/' element={<Home/>}/> {/*Por el momento va a abrir la pantalla de los cupones para el user si no tiene almos mas especifico en la ruta */}
-            <Route path='cuponesPublicos' element={<CuponesPublicos/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
-            <Route path='cuponesPrivados' element={<CuponesPrivados/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
+            <Route path='cuponesPublicos' element={<CuponesPublicos/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones publicos habilitados para todos*/}
+            <Route path='cuponesPrivados' element={<CuponesPrivados/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones privados del user*/}
             <Route path="registro" element={<Registro />} />
             <Route path="inicio" element={<IniciarSesion />} />
             <Route path="registro2" element={<Registro2 />} />
