@@ -7,8 +7,8 @@ import { Filtro } from "./Filtro";
 export const CuponesPrivados = () => {
     const { cupones, loading, error } = useCupones("privados");
 
-    if (loading) return <p>Cargando cupones...</p>;
-    if (error) return <p>Error: {error}</p>;
+    if (loading) return <p className="text-gray-700 text-lg items-center">Cargando cupones...</p>;
+    if (error) return <p className="text-gray-700 text-lg items-center">Error: {error}</p>;
 
     return (
         <>

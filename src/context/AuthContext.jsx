@@ -11,21 +11,21 @@ const AuthProvider = ({ children }) => {
         const storedToken = localStorage.getItem("authToken");
 
         if (storedUser && storedToken) {
-            setClient(JSON.parse(storedUser)); // ❌ Antes: setUser(JSON.parse(storedUser))
+            setClient(JSON.parse(storedUser)); // Antes: setUser(JSON.parse(storedUser))
             setAuthToken(storedToken);
         }
     }, []);
 
     const login = (data) => {
         setAuthToken(data.authToken);
-        setClient(data.client); // ❌ Antes: setUser(data.client)
+        setClient(data.client); //  Antes: setUser(data.client)
         localStorage.setItem("authToken", data.authToken);
         localStorage.setItem("client", JSON.stringify(data.client));
     };
 
     const logout = () => {
         setAuthToken(null);
-        setClient(null); // ❌ Antes: setUser(null)
+        setClient(null); // Antes: setUser(null)
         localStorage.removeItem("authToken");
         localStorage.removeItem("client");
     };
