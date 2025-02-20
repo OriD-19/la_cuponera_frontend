@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export const IniciarSesion = () => {
     const [formData, setFormData] = useState({
-        usuario: '',
-        contrasena: '',
+        username: '',
+        password: '',
     });
 
     const [error, setError] = useState('');
@@ -19,7 +19,7 @@ export const IniciarSesion = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.usuario || !formData.contrasena) {
+        if (!formData.username || !formData.password) {
             setError('Por favor, ingresa todos los datos');
             return;
         }
@@ -28,7 +28,7 @@ export const IniciarSesion = () => {
         setMensaje('');
 
         try {
-            const response = await fetch('https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/users/client/login', {
+            const response = await fetch('https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/login/client', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export const IniciarSesion = () => {
 
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
-                localStorage.setItem('token', data.token); // Guardar token
+                localStorage.setItem('authToken', data.authToken); // Guardar token
             } else {
                 setError(data.message || 'Error en el inicio de sesión');
             }
@@ -57,28 +57,14 @@ export const IniciarSesion = () => {
                 {mensaje && <p className="text-green-500 text-sm mb-4">{mensaje}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="usuario" className="block text-gray-700">Usuario</label>
-                        <input
-                            type="text"
-                            id="usuario"
-                            name="usuario"
-                            value={formData.usuario}
-                            onChange={handleChange}
-                            className="w-full border border-gray-300 p-2 rounded mt-2"
-                            placeholder="Ingresa tu usuario"
-                        />
+                        <label htmlFor="username" className="block text-gray-700">Username</label>
+                        <input type="text" id="username" name="username" value={formData.username} onChange={handleChange}
+                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu username" />
                     </div>
                     <div className="mb-4">
-                        <label htmlFor="contrasena" className="block text-gray-700">Contraseña</label>
-                        <input
-                            type="password"
-                            id="contrasena"
-                            name="contrasena"
-                            value={formData.contrasena}
-                            onChange={handleChange}
-                            className="w-full border border-gray-300 p-2 rounded mt-2"
-                            placeholder="Ingresa tu contraseña"
-                        />
+                        <label htmlFor="password" className="block text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" value={formData.password} onChange={handleChange}
+                            className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="Ingresa tu contraseña" />
                     </div>
                     <button
                         type="submit"
