@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useFetchCoupon } from "../Hooks/useFetchCoupondetails";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate, useParams } from "react-router";
 
 export default function CouponDetails() {
     const [coupon, setCoupon] = useState(null);
     const navigate = useNavigate();
-    const idCoupon = '55584c62-7ccc-4574-bdc0-cc86bd323e1a'; //quemado para las pruebas. Después se puede extraer con useParams si quieren.
-
+    const {idCoupon} = useParams(); //quemado para las pruebas. Después se puede extraer con useParams si quieren.
+    
     useEffect(() => {
         async function fetchData() {
             const data = await useFetchCoupon(idCoupon);
@@ -32,7 +32,6 @@ export default function CouponDetails() {
                 <p className="text-primary text-lg font-semibold capitalize">Categoría: {coupon.category}</p>
                 <button onClick={() => navigate(`/${idCoupon}/purchase`)} className="bg-primary py-2.5 w-full mt-4 rounded-lg text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">Comprar</button>
             </div>
-            <Outlet />
         </div>
     );
 }

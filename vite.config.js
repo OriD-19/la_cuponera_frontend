@@ -7,11 +7,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      '/v1/coupons': {
+      '/api': {
         target: 'https://ez7weiqisc.execute-api.us-east-1.amazonaws.com',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/v1\/coupons/, '')
+        rewrite: (path) => path.replace(/^\/api/, '/v1')
       },
     },
   },
