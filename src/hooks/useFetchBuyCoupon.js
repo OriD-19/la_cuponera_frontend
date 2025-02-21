@@ -1,9 +1,19 @@
-export async function useFetchBuyCoupon(idCoupon) {
+export async function useFetchBuyCoupon(couponId) {
     try {
-        const response = await fetch(`/v1/coupons/${idCoupon}/buy`);
+        const token = localStorage.getItem("authToken");
+        
+        const response = await fetch(`https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons/${couponId}/buy`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        });
+
         if (!response.ok) {
             throw new Error("Error al comprar cupón");
         }
+
         const data = await response.json();
         return data;
     } catch (err) {

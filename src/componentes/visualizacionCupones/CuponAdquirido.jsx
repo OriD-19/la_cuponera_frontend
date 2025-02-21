@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
+import { CouponCompradoDetails } from './CouponCompradoDetails';
 import useFetchBuyCoupon from '../../hooks/useFetchBuyCoupon';
+import useFetchOfferDetails from '../../hooks/useFetchOfferDetails';
 
-
-export const CuponAdquirido = () => {
+const CuponAdquirido = ({ isPublic }) => {
     const [coupon, setCoupon] = useState(null);
-    const {idCoupon} = useParams();
+    const {couponId} = useParams();
+    
+    console.log(couponId)
     useEffect(() => {
         async function fetchData() {
-            const data = await useFetchBuyCoupon(idCoupon);
+            const data = isPublic ? await useFetchBuyCoupon(couponId) : await useFetchOfferDetails(couponId);
             setCoupon(data);
         }
         fetchData();
-    }, [coupon]);
+    }, []);
     if (!coupon) return <p>Cargando información del cupón...</p>;
   return (
-    <div>CuponAdquirido</div>
+    <CouponCompradoDetails coupon={isPublic ? coupon : coupon.offer}/>
   )
 }
 

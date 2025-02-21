@@ -10,9 +10,10 @@ import { CuponesPublicos } from './componentes/visualizacionCupones/CuponesPubli
 import { CuponesPrivados } from './componentes/visualizacionCupones/CuponesPrivados'
 import { MiPerfil } from './componentes/usuarios/MiPerfil'
 import AuthProvider from './context/AuthContext'
+import CuponAdquirido from './componentes/visualizacionCupones/CuponAdquirido'
 import CouponDetails from './componentes/visualizacionCupones/CouponDetails'
 import PasarelaPago from './componentes/visualizacionCupones/PasarelaPago'
-import CuponAdquirido from './componentes/visualizacionCupones/CuponAdquirido'
+
 
 const App = () => {
   return (
@@ -31,9 +32,16 @@ const App = () => {
             <Route path="login_empleados" element={<IniciarSesionEmpleados />} />
             <Route path='perfil' element={<MiPerfil/>}/>
 
-            <Route path="/detalleCupon" element={<CouponDetails/>} /> {/**wprking */}
-            <Route path="/:couponId/purchase" element={<PasarelaPago />} />
-            <Route path="/:couponId/purchase/compra" element={<CuponAdquirido/>} />
+            <Route path='/detalleCupon'>
+              <Route path=":couponId" element={<CouponDetails />}/>                
+              <Route path=":couponId/purchase" element={<PasarelaPago />} />
+              <Route path=":couponId/purchase/compra" element={<CuponAdquirido isPublic={false}/>} />
+            </Route>
+
+            <Route path='/detalleOferta'>
+              <Route path=':couponId' element={<CuponAdquirido isPublic={false}/>} />
+            </Route>
+            
         </Routes>
     </BrowserRouter>
     </AuthProvider>
