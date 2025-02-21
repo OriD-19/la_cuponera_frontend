@@ -13,8 +13,10 @@ export const CuponesPrivados = () => {
     return (
         <>
         <Filtro/>
+        <div className="p-5">
+            <h1 className="text-center text-5xl text-primary font-black">MIS CUPONES</h1>
+        </div>
 
-        <h1 className="text-center text-5xl text-primary font-black">MIS CUPONES</h1>
         <div className="p-4 mt-6 px-20">
             {cupones.length === 0 ? (
                 <p className="text-center text-5xl text-primary font-black">No hay cupones disponibles.</p>
