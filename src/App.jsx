@@ -31,7 +31,7 @@ const App = () => {
             <Route path="login_empleados" element={<IniciarSesionEmpleados />} />
             <Route path='perfil' element={<MiPerfil/>}/>
 
-            <Route path="/:couponId" element={<CouponDetails/>} /> {/**wprking */}
+            <Route path="/detalleCupon" element={<CouponDetails/>} /> {/**wprking */}
             <Route path="/:couponId/purchase" element={<PasarelaPago />} />
             <Route path="/:couponId/purchase/compra" element={<CuponAdquirido/>} />
         </Routes>

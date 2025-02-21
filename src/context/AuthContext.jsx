@@ -69,12 +69,13 @@ const AuthProvider = ({ children }) => {
         setAuthToken(null);
         setClient(null);
         setClientCoupons([]);
-        setSelectedCouponId(null);
+        setSelectedCouponId(null); // Asegurar que se limpia el estado
         localStorage.removeItem("authToken");
         localStorage.removeItem("client");
         localStorage.removeItem("clientCoupons");
-        localStorage.removeItem("selectedCouponId");
+        localStorage.removeItem("selectedCouponId"); // Limpiar el localStorage
     };
+    
 
     return (
         <AuthContext.Provider value={{ client, authToken, clientCoupons, selectedCouponId, selectCoupon, login, logout }}>

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router';
+import { AuthContext } from '../../context/AuthContext'; // Importar el contexto
 
 export const CuponCard = ({ cupon }) => {
   const navigate = useNavigate();
+  const { selectCoupon } = useContext(AuthContext); // Obtener la función selectCoupon
 
   const handleOfferClick = () => {
-    navigate('/:couponId'); // Redirige a la página de detalles del cupón
+    selectCoupon(cupon.couponId); // Guardar el ID del cupón seleccionado
+    navigate('/detalleCupon'); // Redirigir a la página de detalles
   };
 
   return (
@@ -17,13 +20,14 @@ export const CuponCard = ({ cupon }) => {
         <img src="./public/img/Cuponazo.png" alt="Cupón" className="place-self-center w-auto h-40" />
         <p className="mt-3 font-bold">{cupon.title}</p>
         <p className="font-semibold">{cupon.enterpriseCode}</p>
-        <p >Válido hasta: {new Date(cupon.validUntil).toLocaleDateString()}</p>
+        <p>Válido hasta: {new Date(cupon.validUntil).toLocaleDateString()}</p>
       </div>
-      <button className="bg-primary h-7 w-full mt-4 rounded text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96"
-        onClick={handleOfferClick}>
+      <button
+        className="bg-primary h-7 w-full mt-4 rounded text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96"
+        onClick={handleOfferClick}
+      >
         Ver oferta
       </button>
     </div>
   );
 };
-
