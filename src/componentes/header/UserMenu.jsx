@@ -19,7 +19,7 @@ const UserMenu = () => (
                     </NavLink>
                 )}
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
                 {({ active }) => (
                     <NavLink to="/canjeados" className={`block px-4 py-2 text-black ${active ? 'bg-gray-200' : ''}`}>
                         Cupones Canjeados
@@ -32,7 +32,7 @@ const UserMenu = () => (
                         Cupones Vencidos
                     </NavLink>
                 )}
-            </Menu.Item>
+            </Menu.Item> */}
         </Menu.Items>
     </Menu>
 );

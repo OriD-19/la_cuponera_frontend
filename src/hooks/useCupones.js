@@ -29,8 +29,12 @@ export const useCupones = (tipo) => {
                 });
 
                 if (!response.ok) {
+                    if (response.status === 401) {
+                        throw new Error("Los empleados no tienen cupones");
+                    }
+                    
                     throw new Error(`Error HTTP: ${response.status}`);
-                }
+                } 
 
                 const data = await response.json();
                 setCupones([...cupones, ...(tipo === "privados" ? data.offers || [] : data.coupons || [])]);

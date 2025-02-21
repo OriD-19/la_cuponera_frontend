@@ -33,8 +33,10 @@ const ReclamarCupones = () => {
         })
     }
 
+    console.log(Object.keys(offerData).length);
+
     return (
-        <div className="bg-base h-full">
+        <div className={"bg-base " + (Object.keys(offerData).length === 0 ? "h-screen" : "h-full")}>
 
             <div>
                 <div className="flex justify-center align-items-center lg:p-8 md:p-6 p-4 bg-base">

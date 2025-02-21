@@ -43,6 +43,7 @@ export const IniciarSesionEmpleados = () => {
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
                 localStorage.setItem('authToken', data.authToken); // Guardar token
+                localStorage.setItem("role", "employee");
                 navigate('/empleado/canjear')
             } else {
                 setError(data.message || 'Error en el inicio de sesión');

@@ -25,6 +25,7 @@ export const CuponCard = ({ cupon, offer, enterprise }) => {
         <p className="mt-3 font-bold">{cupon?.title}</p>
         <p className="font-semibold">{cupon.enterpriseCode}</p>
         <p className="font-semibold">{offer?.id}</p>
+        {offer?.redeemed ? <p className='font-bold text-red-600'>Reclamado</p> : <p className='font-bold text-green-600'>Vigente</p>}
         <p>Válido hasta: {new Date(cupon.validUntil).toLocaleDateString()}</p>
       </div>
       <button

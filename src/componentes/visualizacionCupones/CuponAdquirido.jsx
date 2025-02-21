@@ -18,7 +18,7 @@ const CuponAdquirido = ({ isPublic }) => {
     }, []);
     if (!coupon) return <p>Cargando información del cupón...</p>;
   return (
-    <CouponCompradoDetails coupon={coupon.offer}/>
+    <CouponCompradoDetails coupon={coupon.coupon} offer={coupon.offer}/>
   )
 }
 

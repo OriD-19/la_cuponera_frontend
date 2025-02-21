@@ -49,6 +49,7 @@ const AuthProvider = ({ children }) => {
         localStorage.removeItem("client");
         localStorage.removeItem("clientCoupons");
         localStorage.removeItem("selectedCouponId"); // Limpiar el localStorage
+        localStorage.removeItem('role');
     };
     
 
