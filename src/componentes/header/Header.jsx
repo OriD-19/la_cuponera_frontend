@@ -38,7 +38,7 @@ const Header = () => {
                                 <UserCircleIcon className="w-10 h-10 text-primary cursor-pointer" onClick={() => setMenuOpen(!menuOpen)} />
                                 {menuOpen && (
                                     <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-md p-2">
-                                        <NavLink to="/perfil" className="block px-4 py-2 text-black hover:bg-gray-200">Mi Perfil</NavLink>
+                                        <NavLink to="/cliente/perfil" className="block px-4 py-2 text-black hover:bg-gray-200">Mi Perfil</NavLink>
                                         <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-black hover:bg-gray-200">
                                             Cerrar Sesión
                                         </button>

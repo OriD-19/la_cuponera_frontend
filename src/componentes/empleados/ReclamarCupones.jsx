@@ -15,7 +15,7 @@ const ReclamarCupones = () => {
         // fetch data from the API
 
         setError("");
-        const authToken = localStorage.getItem('token'); // get the employee token from localStorage
+        const authToken = localStorage.getItem('authToken'); // get the employee token from localStorage
 
         fetch(`https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/offers/${codigoCupon}`, {
             headers: {

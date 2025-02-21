@@ -29,7 +29,7 @@ export const Registro = () => {
 
         // Validación básica
         for (const key in formData) {
-            if (!formData[key]) {
+            if (key !== "phoneNumber" && !formData[key]) {
                 setError(`Por favor, completa el campo ${key}`);
                 return;
             }
@@ -62,7 +62,7 @@ export const Registro = () => {
                     phoneNumber: "",
                     dui: ""
                 });
-                navigate('/inicio')
+                navigate('/cliente/login')
 
             } else {
                 setError(data.message || "Error en el registro.");

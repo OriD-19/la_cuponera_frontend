@@ -14,7 +14,7 @@ const UserMenu = () => (
         <Menu.Items className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1">
             <Menu.Item>
                 {({ active }) => (
-                    <NavLink to="/cuponesPrivados" className={`block px-4 py-2 text-black ${active ? 'bg-gray-200' : ''}`}>
+                    <NavLink to="/misCupones" className={`block px-4 py-2 text-black ${active ? 'bg-gray-200' : ''}`}>
                         Cupones Disponibles
                     </NavLink>
                 )}

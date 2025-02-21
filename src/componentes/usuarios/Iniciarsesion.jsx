@@ -49,7 +49,7 @@ export const IniciarSesion = () => {
                 
                 login(data); // Usar la función login del contexto
                 
-                navigate('/cuponesPrivados'); // Redirigir a la página de cupones privados
+                navigate('/misCupones'); // Redirigir a la página de cupones privados
 
             } else {
                 setError(data.message || 'Error en el inicio de sesión');

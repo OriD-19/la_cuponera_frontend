@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-export const CouponCompradoDetails = ({coupon}) => {
+export const CouponCompradoDetails = ({coupon, isPublic}) => {
     const navigate = useNavigate();
   return (
     <div className="relative bg-fondo p-4 rounded-lg shadow-md w-full h-auto mx-auto">
@@ -11,7 +11,7 @@ export const CouponCompradoDetails = ({coupon}) => {
         <p className="text-lg">{coupon.Title}</p>
         <p className="text-resaltador text-lg font-semibold mt-2">Válido hasta {new Date(coupon.validUntil).toLocaleDateString()}</p>
         <p className="text-primary text-lg font-semibold capitalize text-center">¡Gracias por comprar con nosotros!</p>
-        <button onClick={() => navigate(`/`)} className="bg-primary py-2.5 w-full mt-4 rounded-lg text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">Regresar</button>
+        <button onClick={() => !isPublic ? navigate("/") : navigate(-1)} className="bg-primary py-2.5 w-full mt-4 rounded-lg text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">Regresar</button>
     </div>
 </div>
 )

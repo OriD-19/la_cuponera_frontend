@@ -42,7 +42,7 @@ export default function PasarelaPago() {
         }
     
         if (couponId) {
-            navigate(`/detalleCupon/${couponId}/purchase/compra`);
+            navigate(`/detalleCupon/compra/${couponId}`);
         } else {
             console.error("couponId no encontrado.");
         }

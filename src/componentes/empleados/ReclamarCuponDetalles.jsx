@@ -7,7 +7,7 @@ const ReclamarCuponDetalles = ({ offer, enterprise, client }) => {
     const [redeemed, setRedeemed] = useState(false);
 
     const handleReclamar = () => {
-        const authToken = localStorage.getItem('token');
+        const authToken = localStorage.getItem('authToken');
         console.log(offer.id);
         fetch(`https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/offers/${offer.id}/redeem`, {
             method: "POST",
