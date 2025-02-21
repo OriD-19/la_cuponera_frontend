@@ -1,6 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 
 export const CuponCard = ({ cupon }) => {
+  const navigate = useNavigate();
+
+  const handleOfferClick = () => {
+    navigate('/:couponId'); // Redirige a la página de detalles del cupón
+  };
+
   return (
     <div className="relative bg-fondo p-4 rounded-lg shadow-md w-full h-auto mx-auto">
       <div className="absolute top-2 right-2 bg-resaltador text-white text-sm font-bold px-2 py-1 rounded-full">
@@ -12,7 +19,8 @@ export const CuponCard = ({ cupon }) => {
         <p className="font-semibold">{cupon.enterpriseCode}</p>
         <p >Válido hasta: {new Date(cupon.validUntil).toLocaleDateString()}</p>
       </div>
-      <button className="bg-primary h-7 w-full mt-4 rounded text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">
+      <button className="bg-primary h-7 w-full mt-4 rounded text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96"
+        onClick={handleOfferClick}>
         Ver oferta
       </button>
     </div>

@@ -10,6 +10,9 @@ import { CuponesPublicos } from './componentes/visualizacionCupones/CuponesPubli
 import { CuponesPrivados } from './componentes/visualizacionCupones/CuponesPrivados'
 import { MiPerfil } from './componentes/usuarios/MiPerfil'
 import AuthProvider from './context/AuthContext'
+import CouponDetails from './componentes/visualizacionCupones/CouponDetails'
+import PasarelaPago from './componentes/visualizacionCupones/PasarelaPago'
+import CuponAdquirido from './componentes/visualizacionCupones/CuponAdquirido'
 
 const App = () => {
   return (
@@ -28,6 +31,9 @@ const App = () => {
             <Route path="login_empleados" element={<IniciarSesionEmpleados />} />
             <Route path='perfil' element={<MiPerfil/>}/>
 
+            <Route path="/:couponId" element={<CouponDetails/>} /> {/**wprking */}
+            <Route path="/:couponId/purchase" element={<PasarelaPago />} />
+            <Route path="/:couponId/purchase/compra" element={<CuponAdquirido/>} />
         </Routes>
     </BrowserRouter>
     </AuthProvider>
