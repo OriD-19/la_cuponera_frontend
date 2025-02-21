@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentes/header/Header'
+import { Home } from './componentes/visualizacionCupones/Home'
 import { Registro } from './componentes/usuarios/Registro'
 import { IniciarSesion } from './componentes/usuarios/Iniciarsesion'
 import { IniciarSesionEmpleados } from './componentes/empleados/IniciarSesionEmpleados'
@@ -10,6 +11,9 @@ import { CuponesPrivados } from './componentes/visualizacionCupones/CuponesPriva
 import { MiPerfil } from './componentes/usuarios/MiPerfil'
 import AuthProvider from './context/AuthContext'
 import ReclamarCupones from './componentes/empleados/ReclamarCupones'
+import CuponAdquirido from './componentes/visualizacionCupones/CuponAdquirido'
+import CouponDetails from './componentes/visualizacionCupones/CouponDetails'
+import PasarelaPago from './componentes/visualizacionCupones/PasarelaPago'
 
 const App = () => {
   return (
@@ -43,6 +47,16 @@ const App = () => {
 
           <Route path='perfil' element={<MiPerfil />} />
 
+            <Route path='/detalleCupon'>
+              <Route path=":couponId" element={<CouponDetails />}/>                
+              <Route path=":couponId/purchase" element={<PasarelaPago />} />
+              <Route path=":couponId/purchase/compra" element={<CuponAdquirido isPublic={false}/>} />
+            </Route>
+
+            <Route path='/detalleOferta'>
+              <Route path=':couponId' element={<CuponAdquirido isPublic={false}/>} />
+            </Route>
+            
         </Routes>
       </BrowserRouter>
     </AuthProvider>

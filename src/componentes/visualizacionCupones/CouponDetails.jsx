@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
-import { useFetchCoupon } from "../hooks/useFetchCoupondetails";
-import { Outlet, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import useFetchCoupon from "../../hooks/useFetchCoupondetails";
 
 export default function CouponDetails() {
     const [coupon, setCoupon] = useState(null);
     const navigate = useNavigate();
-    const {idCoupon} = useParams(); //quemado para las pruebas. Después se puede extraer con useParams si quieren.
+    const {couponId} = useParams(); 
+    console.log(couponId)//quemado para las pruebas. Después se puede extraer con useParams si quieren.
     
     useEffect(() => {
         async function fetchData() {
-            const data = await useFetchCoupon(idCoupon);
+            const data = await useFetchCoupon(couponId);
             setCoupon(data);
         }
         fetchData();
-    }, [idCoupon]);
+    }, [couponId]);
 
     if (!coupon) return <p>Cargando información del cupón...</p>;
     return (
@@ -30,7 +31,7 @@ export default function CouponDetails() {
                 <p className="text-gray-700">Cupones disponibles: {coupon.availableCoupons}</p>
                 <p className="text-resaltador text-lg font-semibold mt-2">Empresa ofertante: {coupon.enterpriseCode}</p>
                 <p className="text-primary text-lg font-semibold capitalize">Categoría: {coupon.category}</p>
-                <button onClick={() => navigate(`/${idCoupon}/purchase`)} className="bg-primary py-2.5 w-full mt-4 rounded-lg text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">Comprar</button>
+                <button onClick={() => navigate(`/detalleCupon/${couponId}/purchase`)} className="bg-primary py-2.5 w-full mt-4 rounded-lg text-white items-center text-center hover:bg-resaltador transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-96">Comprar</button>
             </div>
         </div>
     );
