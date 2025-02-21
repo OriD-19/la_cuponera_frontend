@@ -4,6 +4,8 @@ export const useCupones = (tipo) => {
     const [cupones, setCupones] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [next, setNext] = useState(null);
+    const [loadMore, setLoadMore] = useState(false)
     const authToken = localStorage.getItem("authToken");
 
     useEffect(() => {
@@ -14,7 +16,11 @@ export const useCupones = (tipo) => {
             const endpoint =
                 tipo === "privados"
                     ? "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/offers/allFromUser"
-                    : "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons";
+                    : (
+                        next !== null 
+                        ? "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons?next=" + next
+                        : "https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons"
+                    );
 
             try {
                 const response = await fetch(endpoint, {
@@ -27,7 +33,8 @@ export const useCupones = (tipo) => {
                 }
 
                 const data = await response.json();
-                setCupones(tipo === "privados" ? data.offers || [] : data.coupons || []);
+                setCupones([...cupones, ...(tipo === "privados" ? data.offers || [] : data.coupons || [])]);
+                setNext(data.next);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -36,7 +43,7 @@ export const useCupones = (tipo) => {
         };
 
         fetchCupones();
-    }, [authToken, tipo]);
+    }, [authToken, loadMore]);
 
-    return { cupones, loading, error };
+    return { cupones, loading, error, next, setLoadMore };
 };

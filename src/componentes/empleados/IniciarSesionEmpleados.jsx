@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const IniciarSesion2 = () => {
+export const IniciarSesionEmpleados = () => {
     const [formData, setFormData] = useState({
         correo: '',
         contrasena: '',
