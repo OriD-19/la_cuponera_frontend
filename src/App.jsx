@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentes/header/Header'
-import { Home } from './componentes/visualizacionCupones/Home'
 import { Registro } from './componentes/usuarios/Registro'
 import { IniciarSesion } from './componentes/usuarios/Iniciarsesion'
 import { IniciarSesionEmpleados } from './componentes/empleados/IniciarSesionEmpleados'
@@ -34,6 +33,12 @@ const App = () => {
               <Route path="canjear" element={<ReclamarCupones />} />
               <Route />
             </Route>
+
+            <Route path="detallesCupones">
+                <Route path="/:couponId" element={<CouponDetails />} />                
+                <Route path="/:couponId/purchase" element={<PasarelaPago />} />
+                <Route path="/compra/:couponId" element={<CuponAdquirido/>} />
+            </Route>
           </Route>
 
           <Route path='perfil' element={<MiPerfil />} />
@@ -43,5 +48,3 @@ const App = () => {
     </AuthProvider>
   )
 }
-
-export default App
