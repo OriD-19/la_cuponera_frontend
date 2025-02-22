@@ -51,7 +51,7 @@ const ReclamarCupones = () => {
                     <input type="text" className="w-full bg-white border-primary border-4 h-12 text-xl p-4" onChange={handleChangeCodigoCupon} value={codigoCupon}/>
                     <div>
                         <button className="hover:cursor-pointer hidden lg:block" onClick={handleConsultarCupon}>
-                            <img src="../../../public/verified.svg" alt="Verified Icon" />
+                            <img src="./public/verified.svg" alt="Verified Icon" />
                         </button>
                         <button className="bg-primary text-white hover:cursor-pointer block lg:hidden p-6 text-xl" onClick={handleConsultarCupon}>
                             Consultar

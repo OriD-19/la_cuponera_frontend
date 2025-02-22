@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 
 export const IniciarSesionEmpleados = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
     });
+
+    const { login } = useContext(AuthContext);
 
     const [error, setError] = useState('');
     const [mensaje, setMensaje] = useState('');
@@ -42,8 +45,10 @@ export const IniciarSesionEmpleados = () => {
 
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
-                localStorage.setItem('authToken', data.authToken); // Guardar token
-                localStorage.setItem("role", "employee");
+                login({
+                    authToken: data.authToken,
+                    client: data.employee,
+                }, "employee")
                 navigate('/empleado/canjear')
             } else {
                 setError(data.message || 'Error en el inicio de sesión');

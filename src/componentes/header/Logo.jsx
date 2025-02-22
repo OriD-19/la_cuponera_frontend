@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 
 const Logo = () => (
     <NavLink to="/">
-        <img src="/img/Cuponazo.png" alt="Logo" className="w-20 h-20 object-contain" />
+        <img src="./public/img/Cuponazo.png" alt="Logo" className="w-20 h-20 object-contain" />
     </NavLink>
 );
 

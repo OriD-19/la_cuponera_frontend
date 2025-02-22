@@ -119,6 +119,7 @@ export const Registro = () => {
                         className="w-full border border-gray-300 p-2 rounded mt-2" placeholder="DUI" />
                 </div>
                 <button type="submit" className="w-full bg-blue-900 text-white py-2 rounded">Registrar</button>
+                <button className="w-full bg-red-700 text-white py-2 rounded my-4" onClick={() => navigate('/empleado/registro')}>Registro de empleado</button>
             </form>
         </div>
     );

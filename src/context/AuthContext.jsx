@@ -33,11 +33,12 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("selectedCouponId", couponId);
     };
 
-    const login = async (data) => {
+    const login = async (data, role) => {
         setAuthToken(data.authToken);
         setClient(data.client);
         localStorage.setItem("authToken", data.authToken);
         localStorage.setItem("client", JSON.stringify(data.client));
+        localStorage.setItem('role', role)
     };
 
     const logout = () => {

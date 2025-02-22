@@ -47,7 +47,10 @@ export const IniciarSesion = () => {
             if (response.ok) {
                 setMensaje('Inicio de sesión exitoso');
                 
-                login(data); // Usar la función login del contexto
+                login({
+                    authToken: data.authToken,
+                    client: data.client,
+                }, 'cliente'); // Usar la función login del contexto
                 
                 navigate('/misCupones'); // Redirigir a la página de cupones privados
 

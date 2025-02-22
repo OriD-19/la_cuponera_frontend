@@ -73,7 +73,7 @@ export const RegistroEmpleados = () => {
 
     return (
         <div className="max-w-md mx-auto mt-10 bg-white p-6 shadow-md rounded-lg">
-            <h2 className="text-2xl font-semibold text-blue-900 mb-4">Registro de Cliente</h2>
+            <h2 className="text-2xl font-semibold text-blue-900 mb-4">Registro de Empleado</h2>
             {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
             {mensaje && <p className="text-green-500 text-sm mb-4">{mensaje}</p>}
             <form onSubmit={handleSubmit}>
