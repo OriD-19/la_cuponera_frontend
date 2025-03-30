@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const IniciarSesion2 = () => {
+export const Login_employee = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',

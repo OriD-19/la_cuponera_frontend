@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import Header from './componentesComunes/Header'
 import { Home } from './VisualizacionCupones/Home'
 import { Cupones } from './VisualizacionCupones/Cupones'
-import { Registro } from './Registro_cliente/Registro'
-import { IniciarSesion } from './Iniciosesion_cliente/Iniciarsesion'
-import { IniciarSesion2 } from './Iniciosesion_empleado/Iniciarsesion2'
-import { Registro2 } from './Registro_empleado/Registro2'
+import { Registration_customer } from './Customer_registration/Registration'
+import { Login_customer } from './Customer_login/Login'
+import { Login_employee } from './Employee_login/Login'
+import { Registration_employee } from './Employee_registration/Registration'
 
 const App = () => {
   return (
@@ -17,10 +17,10 @@ const App = () => {
             
             <Route path='/' element={<Home/>}/> {/*Por el momento va a abrir la pantalla de los cupones para el user si no tiene almos mas especifico en la ruta */}
             <Route path='cupones' element={<Cupones/>}/> {/* Si le pongo cupones ya me va a llevar a la pagina de los cupones*/}
-            <Route path="registro" element={<Registro />} />
-            <Route path="inicio" element={<IniciarSesion />} />
-            <Route path="registro2" element={<Registro2 />} />
-            <Route path="inicio2" element={<IniciarSesion2 />} />
+            <Route path="Registration_customer" element={<Registration_customer />} />
+            <Route path="Login_customer" element={<Login_customer />} />
+            <Route path="Registration_employee" element={<Registration_employee />} />
+            <Route path="Login_employee" element={<Login_employee />} />
 
         </Routes>
     </BrowserRouter>

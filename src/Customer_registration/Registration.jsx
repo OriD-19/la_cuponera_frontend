@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const Registro = () => {
+export const Registration_customer = () => {
     const [formData, setFormData] = useState({
         username: "",
         email: "",

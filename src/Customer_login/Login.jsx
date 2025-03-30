@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-export const IniciarSesion = () => {
+export const Login_customer = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
