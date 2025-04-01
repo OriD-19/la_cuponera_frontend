@@ -15,5 +15,3 @@ export async function useFetchCoupon(idCoupon) {
         return null;
     }
 }
-
-export default useFetchCoupon;

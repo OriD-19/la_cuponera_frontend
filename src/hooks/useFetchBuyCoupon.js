@@ -1,8 +1,7 @@
 export async function useFetchBuyCoupon(couponId) {
     try {
-        const token = localStorage.getItem("authToken");
-        
-        const response = await fetch(`https://ez7weiqisc.execute-api.us-east-1.amazonaws.com/v1/coupons/${couponId}/buy`, {
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5hdGFseTEucEBob3RtYWlsLmNvbSIsImV4cGlyZXMiOjE3NDAxMjc4ODEsInJvbGUiOiJjbGllbnQiLCJ1c2VybmFtZSI6Im5hdGFseTEifQ.BMUHgMCZar1qE_e_66nfSGRJZmX_BuPxZdmmUgqwnYI";
+        const response = await fetch(`/api/coupons/${couponId}/buy`, {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -21,5 +20,3 @@ export async function useFetchBuyCoupon(couponId) {
         return null;
     }
 }
-
-export default useFetchBuyCoupon;
