@@ -7,6 +7,8 @@ import { Registration_customer } from './Customer_registration/Registration'
 import { Login_customer } from './Customer_login/Login'
 import { Login_employee } from './Employee_login/Login'
 import { Registration_employee } from './Employee_registration/Registration'
+import { Login_admin } from './Admin_login/Login'
+import { Registration_admin } from './Admin_registration/Registration'
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
             <Route path="Login_customer" element={<Login_customer />} />
             <Route path="Registration_employee" element={<Registration_employee />} />
             <Route path="Login_employee" element={<Login_employee />} />
+            <Route path="Registration_admin" element={<Registration_admin />} />
+            <Route path="Login_admin" element={<Login_admin />} />
 
         </Routes>
     </BrowserRouter>
